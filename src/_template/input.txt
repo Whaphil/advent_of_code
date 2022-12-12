@@ -1,1 +1,1 @@
-Running AdventOfCode
+Running Advent of code solver
