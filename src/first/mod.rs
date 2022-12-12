@@ -1,5 +1,3 @@
-use core::panic;
-
 type Elf = Vec<usize>;
 
 pub fn parse_input(unparsed_input: String) -> Vec<Elf> {
@@ -19,7 +17,7 @@ pub fn parse_input(unparsed_input: String) -> Vec<Elf> {
 }
 
 pub fn solve(elfs: Vec<Elf>) -> String {
-    let elfs_with_total_calories: Vec<usize> = elfs
+    let mut elfs_with_total_calories: Vec<usize> = elfs
         .iter()
         .map(|elf| {
             let mut total = 0;
@@ -28,16 +26,22 @@ pub fn solve(elfs: Vec<Elf>) -> String {
         })
         .collect();
 
-    let elf_with_most_calories =
-        elfs_with_total_calories
-            .iter()
-            .reduce(|prev, curr| match prev >= curr {
-                true => prev,
-                false => curr,
-            });
+    elfs_with_total_calories.sort();
+    elfs_with_total_calories.reverse();
 
-    match elf_with_most_calories {
-        Some(val) => "Found the elf that will make everyone fat".to_owned() + &val.to_string(),
-        None => panic!("FOUND NO ELF WITH MOST CALORIES"),
-    }
+    let top_three_elfs = &elfs_with_total_calories[..3];
+    let elf_with_most_calories = top_three_elfs[0];
+
+    let mut total_calories_of_top_three_elfs: usize = 0;
+    top_three_elfs
+        .iter()
+        .for_each(|val| total_calories_of_top_three_elfs = total_calories_of_top_three_elfs + val);
+
+    return format!(
+        "\
+The elf with the most calories carries {:?}
+The top three elves are carrying {:?} calories
+        ",
+        elf_with_most_calories, total_calories_of_top_three_elfs
+    );
 }
