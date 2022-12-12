@@ -1,3 +1,4 @@
+pub mod _template;
 pub mod first;
 
 use std::fs;
@@ -27,5 +28,10 @@ fn write_solution(solution: String, path: String) -> () {
 }
 
 fn main() {
-    solve("./src/first/".to_owned(), first::parse_input, first::solve)
+    solve(
+        "./src/_template".to_owned(),
+        _template::parse_input,
+        _template::solve,
+    );
+    solve("./src/first/".to_owned(), first::parse_input, first::solve);
 }

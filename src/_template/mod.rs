@@ -1,5 +1,5 @@
 pub fn parse_input(unparsed_input: String) -> String {
-    return unparse_input;
+    return unparsed_input;
 }
 
 pub fn solve(formatted_input: String) -> String {
