@@ -37,7 +37,7 @@ pub fn solve(elfs: Vec<Elf>) -> String {
             });
 
     match elf_with_most_calories {
-        Some(val) => val.to_string(),
+        Some(val) => "Found the elf that will make everyone fat".to_owned() + &val.to_string(),
         None => panic!("FOUND NO ELF WITH MOST CALORIES"),
     }
 }
