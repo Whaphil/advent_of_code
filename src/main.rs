@@ -1,5 +1,6 @@
 pub mod _template;
 pub mod first;
+pub mod second;
 
 use std::fs;
 
@@ -34,4 +35,9 @@ fn main() {
         _template::solve,
     );
     solve("./src/first/".to_owned(), first::parse_input, first::solve);
+    solve(
+        "./src/second".to_owned(),
+        second::parse_input,
+        second::solve,
+    )
 }
