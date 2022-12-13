@@ -34,6 +34,6 @@ fn main() {
         _template::parse_input,
         _template::solve,
     );
-    solve("./src/first/".to_owned(), day01::parse_input, day01::solve);
-    solve("./src/second".to_owned(), day02::parse_input, day02::solve)
+    solve("./src/day01".to_owned(), day01::parse_input, day01::solve);
+    solve("./src/day02".to_owned(), day02::parse_input, day02::solve)
 }
