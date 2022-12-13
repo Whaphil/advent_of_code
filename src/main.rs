@@ -1,6 +1,6 @@
 pub mod _template;
-pub mod first;
-pub mod second;
+pub mod day01;
+pub mod day02;
 
 use std::fs;
 
@@ -34,10 +34,6 @@ fn main() {
         _template::parse_input,
         _template::solve,
     );
-    solve("./src/first/".to_owned(), first::parse_input, first::solve);
-    solve(
-        "./src/second".to_owned(),
-        second::parse_input,
-        second::solve,
-    )
+    solve("./src/first/".to_owned(), day01::parse_input, day01::solve);
+    solve("./src/second".to_owned(), day02::parse_input, day02::solve)
 }
